@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     post_list = []
 
-    f = open("F:/Michelle/hashtag_file.txt", "r") #open text file
+    f = open("F:/Michelle/hashtags.csv", "r") #open text file
 
     hashtag_list = f.readlines()
 
