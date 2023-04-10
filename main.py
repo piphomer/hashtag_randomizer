@@ -39,15 +39,19 @@ if __name__ == '__main__':
 
     print(len(my_dict))
 
-    d1 = dict((k, v) for k, v in my_dict.items() if v >= 100000000)
-    d2 = dict((k, v) for k, v in my_dict.items() if (v >= 10000000 & v < 10000000))
-    d3 = dict((k, v) for k, v in my_dict.items() if v >= 10000000)
-    d4 = dict((k, v) for k, v in my_dict.items() if v >= 10000000)
+    d1 = dict((k, v) for k, v in my_dict.items() if v >= 10000000)
+    d2 = dict((k, v) for k, v in my_dict.items() if (v >= 1000000 and v < 10000000))
+    d3 = dict((k, v) for k, v in my_dict.items() if (v >= 100000 and v < 1000000))
+    d4 = dict((k, v) for k, v in my_dict.items() if v < 100000)
 
     print(d1)
     print(len(d1))
     print(d2)
     print(len(d2))
+    print(d3)
+    print(len(d3))
+    print(d4)
+    print(len(d4))
 
 
 
