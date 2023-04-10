@@ -1,12 +1,10 @@
 # Python 3
 
 import random
+import csv
 
-if __name__ == '__main__':
-
-    post_list = []
-
-    f = open("F:/Michelle/hashtags.csv", "r") #open text file
+def read_txt():
+    f = open("F:/Michelle/hashtag_file.txt", "r") #open text file
 
     hashtag_list = f.readlines()
 
@@ -14,13 +12,55 @@ if __name__ == '__main__':
 
     f.close()
 
-    for count in range(10):
+    return hashtag_list
 
-        length = len(hashtag_list) #get length of list
 
-        tag = random.randint(0,length-1) #then generate a random integer less than or equal that length
+def read_csv():
+    with open('F:/Michelle/hashtags.csv', mode='r') as infile:
+        reader = csv.reader(infile)
+        mydict = {rows[0]: int(rows[1]) for rows in reader}
+        print(mydict)
+        return mydict
 
-        post_list.append(hashtag_list.pop(tag)) #remove the tag at that position from the list and  put it in a new list
 
-    print(post_list)
+if __name__ == '__main__':
+
+
+    # split list into four parts
+    # - over 10M posts
+    # - 1M - 10M posts
+    # - 100k - 1M posts
+    # - <100k posts
+    # pick 1 from top part, 3 from next part, 10 from next (14 tags total)
+
+    post_list = []
+
+    my_dict = read_csv()
+
+    print(len(my_dict))
+
+    d1 = dict((k, v) for k, v in my_dict.items() if v >= 100000000)
+    d2 = dict((k, v) for k, v in my_dict.items() if (v >= 10000000 & v < 10000000))
+    d3 = dict((k, v) for k, v in my_dict.items() if v >= 10000000)
+    d4 = dict((k, v) for k, v in my_dict.items() if v >= 10000000)
+
+    print(d1)
+    print(len(d1))
+    print(d2)
+    print(len(d2))
+
+
+
+
+    # candidate_list = read_txt()
+    #
+    # for count in range(16):
+    #
+    #     length = len(candidate_list) #get length of list
+    #
+    #     tag = random.randint(0,length-1) #then generate a random integer less than or equal that length
+    #
+    #     post_list.append(candidate_list.pop(tag)) #remove the tag at that position from the list and  put it in a new list
+    #
+    # print(post_list)
 
