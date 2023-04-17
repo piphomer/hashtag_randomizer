@@ -56,15 +56,17 @@ if __name__ == '__main__':
 
 
 
-    # candidate_list = read_txt()
+    candidate_list = d1
+    print(candidate_list)
     #
-    # for count in range(16):
-    #
-    #     length = len(candidate_list) #get length of list
-    #
-    #     tag = random.randint(0,length-1) #then generate a random integer less than or equal that length
-    #
-    #     post_list.append(candidate_list.pop(tag)) #remove the tag at that position from the list and  put it in a new list
-    #
-    # print(post_list)
+    for count in range(2):
+
+        length = len(candidate_list) #get length of list
+
+        tag = random.randint(0,length-1) #then generate a random integer less than or equal that length
+        print(tag)
+
+        post_list.append(candidate_list.pop(tag)) #remove the tag at that position from the list and  put it in a new list
+
+    print(post_list)
 
