@@ -25,15 +25,16 @@ def read_csv():
 
 if __name__ == '__main__':
 
+    post_list = []
 
     # split list into four parts
     # - over 10M posts
     # - 1M - 10M posts
     # - 100k - 1M posts
     # - <100k posts
-    # pick 1 from top part, 3 from next part, 10 from next (14 tags total)
+    # pick 1 from top part, 3 from next part, 6 from next, 6 from last (16 tags total)
 
-    post_list = []
+    qty_dict = {'d1': 1, 'd2': 3, 'd3': 6, 'd4': 6}
 
     my_dict = read_csv()
 
@@ -44,34 +45,25 @@ if __name__ == '__main__':
     d3 = dict((k, v) for k, v in my_dict.items() if (v >= 100000 and v < 1000000))
     d4 = dict((k, v) for k, v in my_dict.items() if v < 100000)
 
-    # print(d1)
-    # print(len(d1))
-    # print(d2)
-    # print(len(d2))
-    # print(d3)
-    # print(len(d3))
-    # print(d4)
-    # print(len(d4))
-
-
-
-
-    candidate_list = list(d1.items())
+    candidate_list = list(d2.items())
     print(candidate_list)
-    print(len(candidate_list))
     #
 
+    for key, value in qty_dict.items():
 
-    for count in range(1):
+        print("Getting tags from dict: ", key)
 
-        print(count)
+        for count in range(value):
+        #
+            print(count)
 
-        length = len(candidate_list) #get length of list
-
-        tag = random.randint(0,length-1) #then generate a random integer less than or equal that length
-        # print(tag)
-
-        post_list.append(candidate_list.pop(tag)) #remove the tag at that position from the list and  put it in a new list
+        #
+            length = len(candidate_list) #get length of list
+        #
+        #     tag = random.randint(0,length-1) #then generate a random integer less than or equal that length
+        #     # print(tag)
+        #
+        #     post_list.append(candidate_list.pop(tag)) #remove the tag at that position from the list and  put it in a new list
 
     print(post_list)
 
